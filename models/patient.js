@@ -39,7 +39,11 @@ var patientSchema = new mongoose.Schema({
                 type: String
             }
         }
-    ]
+    ],
+    bio:{
+        type: String,
+        required: true
+    }
 });
 
 patientSchema.pre('save', function(next){

@@ -1,7 +1,17 @@
 const mongoose = require('mongoose');
 const Patient = require('../models/patient');
+const express = require('express');
+const authMiddlewares = require('../middlewares/authenticate');
 
-const config = require('../config');
+const router = express.Router();
 
-const secret = config.database;
+router.post('/login', function(req, res){
+    authMiddlewares.authenticate(req, res);
+});
+
+router.post('/registerPatient', function(req, res){
+    authMiddlewares.register(req, res);
+});
+
+module.exports = router;
 

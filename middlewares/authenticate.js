@@ -53,4 +53,36 @@ function authenticate(req, res) {
     });
 }
 
-module.exports = {authenticate: authenticate, checkToken: checkToken};
+
+function register(req, res) {
+    var name = req.body.name;
+    var username = req.body.username;
+    var address = req.body.address;
+    var email = req.body.email;
+    var password = req.body.password;
+    var bio = req.body.bio;
+
+    var newPatient = new Patient({
+        name: name,
+        username: username,
+        address: address,
+        email: email,
+        password: password,
+        bio: bio
+    });
+
+    newPatient.save(function(err) {
+        if (err){
+            console.log(err);
+            if (err.code == 11000)
+                return res.json({success: false, message: "A user with same details already exists"})
+            else
+                return res.json({success: false, message: "An error occurred"});
+        } else {
+            return res.json({success: true, message: "Patient registered successfully"});
+        }
+    });
+
+}
+
+module.exports = {authenticate: authenticate, checkToken: checkToken, register: register};
