@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-const Patient = require('../models/patient');
 const express = require('express');
 const authMiddlewares = require('../middlewares/authenticate');
 

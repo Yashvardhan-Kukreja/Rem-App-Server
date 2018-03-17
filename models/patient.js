@@ -30,7 +30,7 @@ var patientSchema = new mongoose.Schema({
             type: String
         }
     ],
-    closedOnes: [
+    contacts: [
         {
             name: {
                 type: String
