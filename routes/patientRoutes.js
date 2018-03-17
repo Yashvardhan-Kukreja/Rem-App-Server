@@ -63,5 +63,22 @@ router.post('/addNotes', function(req, res){
     });
 });
 
+router.post('/addEvent', function(req, res){
+    var event = req.body.event;
+
+    Patient.findOneAndUpdate({_id: req.decoded._id}, {$push:{events: event}}).exec(function(err, outputPatient){
+        if (err) {
+            console.log(err);
+            res.json({success: false, message: "An error occurred"});
+        } else {
+            if (!outputPatient) {
+                res.json({success: false, message: "Patient not found"});
+            } else {
+                res.json({success: true, message: "Added an event"});
+            }
+        }
+    });
+});
+
 
 module.exports = router;
