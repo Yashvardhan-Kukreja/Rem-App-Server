@@ -1,4 +1,4 @@
 module.exports = {
-    database: "mongodb://localhost:27017/rem",
+    database: "mongodb://yashvardhan:yashvardhan@ds117489.mlab.com:17489/rem_codespace",
     secret: "luci4"
 };
