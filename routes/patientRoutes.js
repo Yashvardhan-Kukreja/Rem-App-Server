@@ -46,7 +46,7 @@ router.post('/addContact', function(req, res){
     });
 });
 
-router.post('/addNotes', function(req, res){
+router.post('/addNote', function(req, res){
     var note = req.body.note;
 
     Patient.findOneAndUpdate({_id: req.decoded._id}, {$push:{notes: note}}).exec(function(err, outputPatient){

@@ -32,7 +32,7 @@ function authenticate(req, res) {
     var email = req.body.email;
     var password = req.body.password;
 
-    Patient.findOne({email: email}, {_id: 0}).exec(function(err, outputMember){
+    Patient.findOne({email: email}).exec(function(err, outputMember){
         if (err) {
             console.log(err);
             res.json({success: false, message: "An error occurred"});
