@@ -75,7 +75,7 @@ function register(req, res) {
         if (err){
             console.log(err);
             if (err.code == 11000)
-                return res.json({success: false, message: "A user with same details already exists"})
+                return res.json({success: false, message: "A user with same details already exists"});
             else
                 return res.json({success: false, message: "An error occurred"});
         } else {
