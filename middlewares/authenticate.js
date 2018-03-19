@@ -1,10 +1,8 @@
-const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt-nodejs');
-const config = require('../config');
 const Patient = require('../models/patient');
 
-const secret = config.database;
+const secret = process.env.SECRET;
 
 
 function checkToken(req, res, next) {
