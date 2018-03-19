@@ -33,7 +33,7 @@ function authenticate(req, res) {
     Patient.findOne({email: email}).exec(function(err, outputMember){
         if (err) {
             console.log(err);
-            res.json({success: false, message: "An error occurred"});
+            return res.json({success: false, message: "An error occurred"});
         } else {
             if (!outputMember){
                 return res.json({success: false, message: "User not found"});
